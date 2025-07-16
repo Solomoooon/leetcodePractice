@@ -35,6 +35,7 @@ def canFinish(numCourses: int, prerequisites: List[List[int]]) -> bool:
         return False
 
     for i in range(numCourses):
+        # 每个node轮流dfs
         if dfs(i, adj, visited, instack):
             return False
     return True
