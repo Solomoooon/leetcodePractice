@@ -1,6 +1,6 @@
 def letterCombinations(self, digits: str) -> List[str]:
     if len(digits) == 0:
-        return
+        return []
     letters = {
         "2": "abc",
         "3": "def",
