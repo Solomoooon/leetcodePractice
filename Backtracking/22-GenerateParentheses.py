@@ -1,6 +1,7 @@
 def generateParenthesis(self, n: int) -> List[str]:
     if n == 0:
-        return []
+        return
+    results = []
 
     def backtrack(cur, left, right):
         if left == right == n:
@@ -8,13 +9,12 @@ def generateParenthesis(self, n: int) -> List[str]:
             return
 
         if left < n:
-            new_str = cur + "("
-            backtrack(new_str, left + 1, right)
-        if left > right:
-            new_str = cur + ")"
-            backtrack(new_str, left, right + 1)
+            new_cur = cur + "("
+            backtrack(new_cur, left + 1, right)
 
-    results = []
-    cur = ""
-    backtrack(cur, 0, 0)
+        if left > right:
+            new_cur = cur + ")"
+            backtrack(new_cur, left, right + 1)
+
+    backtrack("", 0, 0)
     return results
